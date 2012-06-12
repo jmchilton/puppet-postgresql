@@ -4,6 +4,7 @@ class postgresql {
       case $lsbdistcodename {
         lenny :  { include postgresql::debian::v8-3 }
         squeeze: { include postgresql::debian::v8-4 }
+        wheezy:  { include postgresql::debian::v8-4 }
         default: { fail "postgresql not available for ${operatingsystem}/${lsbdistcodename}"}
       }
     } 
