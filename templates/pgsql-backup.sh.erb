@@ -10,7 +10,7 @@ export PGOPTIONS='-c statement_timeout=0'
 
 pg_dumpall -U postgres --globals-only |bzip2 > $TMPDIR/ACCOUNT-OBJECTS.$TODAY.dump.bz
 
-for i in <% postgresql_tables %>
+for i in <%= postgresql_tables %>
     do
         pg_dump -U postgres --format=$BKPFMT --create $i |bzip2  > $TMPDIR/$i.$TODAY.dump.bz
     done
